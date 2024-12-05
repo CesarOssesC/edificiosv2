@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @building %>
+
+<div>
+  <% if !current_user.usuario? %>
+    <%= link_to "Edit this building", edit_building_path(@building), class:"btn btn-warning" %>
+  <% end %>
+  <% if current_user.admin? %>
+    <%= button_to "Destroy this building", @building, method: :delete, class:"btn btn-danger" %>
+  <% end %>
+</div>
+<div>
+  <%= link_to "Back to buildings", buildings_path, class:"btn btn-dark" %>
+</div>

@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Edificios" %>
+
+<h1 class="text-center my-5">Listado Edificios</h1>
+
+<% if !current_user.usuario? %>
+  <div class="mb-5 d-flex justify-content-end">
+    <%= link_to "Crear Edificio", new_building_path, class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<table class="table table-striped mb-5">
+  <thead>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Direccion</th>
+    <th>Acciones</th>
+  </thead>
+  <tbody>
+    <% @buildings.each do |building| %>
+      <tr>
+        <td><%= building.id %></td>
+        <td><%= building.nombre %></td>
+        <td><%= building.direccion %></td>
+        <td><%= link_to "Detalles", building, class:"btn btn-dark" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if !current_user.usuario? %>
+  <div>
+    <%= link_to "Crear Edificio", new_building_path, class:"btn btn-primary" %>
+  </div>
+<% end %>

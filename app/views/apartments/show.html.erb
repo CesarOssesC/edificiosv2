@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @apartment %>
+
+<div>
+  <% if !current_user.usuario? %>
+    <%= link_to "Edit this apartment", edit_apartment_path(@apartment), class:"btn btn-warning" %>
+  <% end %>
+  <% if current_user.admin? %>
+    <%= button_to "Destroy this apartment", @apartment, method: :delete, class:"btn btn-danger" %>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to "Back to apartments", apartments_path, class:"btn btn-dark" %>
+</div>

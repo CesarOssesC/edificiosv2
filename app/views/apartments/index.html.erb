@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Departamentos" %>
+
+<h1 class="text-center my-5">Listado Departamentos</h1>
+
+<% if !current_user.usuario? %>
+  <div class="mb-5 d-flex justify-content-end">
+    <%= link_to "Crear Departamento", new_apartment_path, class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<table class="table table-striped mb-5">
+  <thead>
+    <th>ID</th>
+    <th>Número</th>
+    <th>Edificio</th>
+    <th>Acciones</th>
+  </thead>
+  <tbody>
+    <% @apartments.each do |apartment| %>
+      <tr>
+        <td><%= apartment.id %></td>
+        <td><%= apartment.numero %></td>
+        <td><%= apartment.building.nombre %></td>
+        <td><%= link_to "Detalles", apartment, class:"btn btn-dark" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if !current_user.usuario? %>
+  <div>
+    <%= link_to "Crear Departamento", new_apartment_path, class:"btn btn-primary" %>
+  </div>
+<% end %>
