@@ -1,5 +1,6 @@
 class BuildingsController < ApplicationController
   before_action :set_building, only: %i[ show edit update destroy ]
+  before_action :consultar_features, only: %i[ show new edit create update ]
   before_action :authenticate_user!
   before_action :soy_usuario, except: %i[ index show ]
   before_action :soy_conserje?, except: %i[ index show new edit create update ]
@@ -70,7 +71,11 @@ class BuildingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def building_params
-      params.require(:building).permit(:nombre, :direccion)
+      params.require(:building).permit(:nombre, :direccion, feature_ids: [])
+    end
+
+    def consultar_features
+      @features = Feature.all
     end
 
 end

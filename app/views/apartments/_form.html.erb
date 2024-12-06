@@ -12,13 +12,18 @@
   <% end %>
 
   <div>
-    <%= form.label :numero, style: "display: block" %>
+    <%= form.label :numero, style: "display: block" %> 
     <%= form.text_field :numero %>
   </div>
 
   <div>
     <%= form.label :building_id, style: "display: block" %>
     <%= form.collection_select :building_id, @buildings, :id, :nombre, { include_blank: "Elige un edificio..." } %>
+  </div>
+
+  <div>
+    <%= form.label :images, class:"form-label", for:"formFileMultiple" %>
+    <%= form.file_field :images, multiple: true, class:"form-control", id:"formFileMultiple"  %>
   </div>
 
   <div>

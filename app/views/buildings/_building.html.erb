@@ -9,4 +9,18 @@
     <%= building.direccion %>
   </p>
 
+  <p>
+    <strong>Características:</strong>
+    <% building.features.each do |feature| %>
+      <p><%= feature.nombre %></p>
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Departamentos Disponibles:</strong>
+    <% building.apartments.each do |apartment| %>
+      <p><%= apartment.numero %></p>
+    <% end %>
+  </p>
+
 </div>
