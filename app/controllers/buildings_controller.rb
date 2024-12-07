@@ -9,7 +9,10 @@ class BuildingsController < ApplicationController
 
   # GET /buildings or /buildings.json
   def index
-    @buildings = Building.all
+    @q = Building.ransack(params[:q])
+    @pagy, @buildings = pagy(@q.result)
+    # @buildings = Building.all
+    @total_edificios = Building.total_edificios
   end
 
   # GET /buildings/1 or /buildings/1.json

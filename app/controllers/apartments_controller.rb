@@ -8,7 +8,9 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments or /apartments.json
   def index
-    @apartments = Apartment.all
+    @pagy, @apartments = pagy(Apartment.all)
+    # @apartments = Apartment.all
+    @total_departamentos = Apartment.total_departamentos
   end
 
   # GET /apartments/1 or /apartments/1.json

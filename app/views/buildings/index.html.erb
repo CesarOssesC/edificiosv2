@@ -4,11 +4,28 @@
 
 <h1 class="text-center my-5">Listado Edificios</h1>
 
-<% if !current_user.usuario? %>
-  <div class="mb-5 d-flex justify-content-end">
-    <%= link_to "Crear Edificio", new_building_path, class:"btn btn-primary" %>
+
+<div class="row justify-content-between">
+  <div class="col">
+    Contamos con un total de <%= @total_edificios %> edificios
   </div>
+  <% if !current_user.usuario? %>
+    <div class="col mb-5 text-end">
+      <%= link_to "Crear Edificio", new_building_path, class:"btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="my-5">
+  <%= search_form_for @q do |f| %>
+
+  <%# #Attributes may be chained. Search multiple attributes for one value... %>
+  <%= f.label :nombre_or_direccion_cont, "Buscar por nombre o direccion" %>
+  <%= f.search_field :nombre_or_direccion_cont %>
+
+  <%= f.submit %>
 <% end %>
+</div>
 
 <table class="table table-striped mb-5">
   <thead>
@@ -28,6 +45,10 @@
     <% end %>
   </tbody>
 </table>
+
+<div class="my-5 d-flex justify-content-end">
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
 
 <% if !current_user.usuario? %>
   <div>

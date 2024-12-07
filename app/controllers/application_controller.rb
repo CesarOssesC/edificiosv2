@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
   before_action :configure_permitted_parameters, if: :devise_controller?
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
-
 
   def soy_admin?
     if user_signed_in? && current_user.admin?

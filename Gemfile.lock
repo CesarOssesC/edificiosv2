@@ -163,6 +163,7 @@ GEM
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pagy (9.3.2)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
@@ -212,6 +213,10 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.2.1)
+    ransack (4.2.1)
+      activerecord (>= 6.1.5)
+      activesupport (>= 6.1.5)
+      i18n
     rdoc (6.8.1)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
@@ -310,9 +315,11 @@ DEPENDENCIES
   devise
   importmap-rails
   jbuilder
+  pagy
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.2)
+  ransack
   rubocop-rails-omakase
   selenium-webdriver
   sprockets-rails
