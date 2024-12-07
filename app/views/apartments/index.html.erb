@@ -15,6 +15,17 @@
   <% end %>
 </div>
 
+<div class="my-5">
+  <%= search_form_for @q do |f| %>
+
+  <%# #Attributes may be chained. Search multiple attributes for one value... %>
+  <%= f.label :numero_cont, "Buscar numero de depto" %>
+  <%= f.search_field :numero_cont %>
+
+  <%= f.submit %>
+<% end %>
+</div>
+
 <table class="table table-striped mb-5">
   <thead>
     <th>ID</th>

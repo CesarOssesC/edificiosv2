@@ -7,4 +7,7 @@ class Apartment < ApplicationRecord
 
   scope :total_departamentos, -> { count }
 
+  def self.ransackable_attributes(auth_object = nil)
+    ["building_id", "created_at", "id", "numero", "updated_at"]
+  end
 end
